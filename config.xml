@@ -2,15 +2,15 @@
   
   <widget xmlns   = "http://www.w3.org/ns/widgets"
           xmlns:gap   = "http://phonegap.com/ns/1.0"
-          id          = "id.riskydigital.GeoliteMega"
+          id          = "id.riskydigital.GeoliteMegaMedia"
           versionCode = "3" 
           version     = "0.3.2" >
 
-  <name>Geolite Mega</name>
+  <name>Geolite Mega Media</name>
   <description>
     Geolite App untuk mengontrol Pompa
   </description>
-  <author email="riskydigital@gmail.com" href="http://goji.web.id">
+  <author email="riskydigital@gmail.com" href="http://www.riskydigital.com">
     Rizki Noor Hidayat Wijaya
   </author>
 
