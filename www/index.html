@@ -31,7 +31,7 @@
             <div>
                 <div class="col s12">
                     <ul class="tabs indigo darken-1">
-                        <li class="tab col s3"><a href="#saklar">Perangkat</a></li>
+                        <li class="tab col s3"><a href="#saklar">Alat</a></li>
                         <li class="tab col s3"><a href="#jadwal">Jadwal</a></li>
                         <li class="tab col s3"><a href="#setting">Setting</a></li>
 						<li class="tab col s3"><a href="#foto">Foto</a></li>
@@ -164,6 +164,10 @@
                                     <input placeholder="password" id="setting_serverpass" type="password">
                                     <label for="setting_serverpass">Password</label>
                                   </div>
+                                  <div class="input-field indigo-text">
+                                    <input placeholder="fotoupdate" id="setting_fotoupdate" type="checkbox">
+                                    <label for="setting_fotoupdate">Foto Auto Update</label>
+                                  </div>
                                   <div class="right">
                                     <span id="saved">Disimpan.. </span>
                                     <button id="btn_setting_save" class="indigo darken-1 waves-effect waves-light btn right-align btnsml">Simpan</button>
@@ -184,6 +188,10 @@
             </div>
 
             <div id="foto" class="col s12">
+            <button id="btn_streaming" class="indigo darken-1 waves-effect waves-light btn right-align btnsml">Foto</button>
+            <button id="btn_streamingvideo" class="indigo darken-1 waves-effect waves-light btn right-align btnsml">Video</button>
+            <button id="btn_streamingoff" class="indigo darken-1 waves-effect waves-light btn right-align btnsml">Stop</button>
+
 			<div id="fotowebcam"></div>
 								
 
