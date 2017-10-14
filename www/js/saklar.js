@@ -3,6 +3,14 @@ build = "20151117";
 timeout_value = 15000; // 15 detik
 
 function cekStatus() {
+//var _urlwebcam = "https://i.stack.imgur.com/n9Xwo.jpg?s=48&g=1";
+//     $('#fotowebcam').load('http://192.168.6.1/geolite/anu.ini');
+//    $('#fotowebcam').load('http://192.168.6.1:8291/?action=snapshot');
+//$('#fotowebcam').html("<img  style='position:absolute' src=window.currentServerURL.replace('/geolite', ':8291?action=snapshot')>");
+//$('#fotowebcam').html(_urlwebcam);
+var _urlwebcam = window.currentServerURL.replace('/geolite', ':8291?action=snapshot');
+$('#fotowebcam').empty().append('<img id="theImg" src='+_urlwebcam+' />')
+
   // console.log('checking: '+window.checking);
   if (window.connected && !window.checking) {
     window.checking = true;
@@ -180,12 +188,14 @@ function getList() {
       
       window.connected = true;
 
+  
       $('#errorDiv, #selectserver').hide();
 
       $('#saklar-list').replaceWith(__list);
       $('#names').html(__names);
       $('#gpiolist').replaceWith(__listcheck);
       $('#saklar-content, .saklar-list, #jadwal-content, #setting-content, #setting-content-nama').fadeIn('fast');
+
 
       // ambil list jadwal
       $('#loadingtext').html('Mengambil jadwal..');
@@ -343,7 +353,7 @@ $(document).ready(function(){
   window.processing = true;
   window.connected = false;
   window.checking = false;
-
+  
   $("#toggle-menu-kiri").sideNav({
     closeOnClick: true 
   });
@@ -422,13 +432,18 @@ $(document).ready(function(){
     }
 
   }
+//	  var _urlwebcam = "satu dua tiga";
+//      $('#fotowebcam').show().html(window.currentServerURL.replace('/geolite', ':8291?action=snapshot'));
+//     $('#fotowebcam').load('http://192.168.6.1:8291/?action=snapshot');
+//     $('#fotowebcam').load('http://192.168.6.1/geolite/test.ini');
 
   console.log("ready");
 });
 
 $(window).load(function() {
 
-  $(document).on('click', '.switch-control', function(event) {
+
+ $(document).on('click', '.switch-control', function(event) {
 
     event.preventDefault();
     event.stopPropagation();
