@@ -1,15 +1,38 @@
 versi = "0.2.0";
 build = "20151117";
 timeout_value = 15000; // 15 detik
+var global_isstream;
+var last_global_isstream;
+
 
 function cekStatus() {
+if (global_isstream=="1") {
+last_global_isstream="1";
+var _urlwebcam = window.currentServerURL.replace('/geolite', ':8291?action=snapshot');
+$('#fotowebcam').empty().append('<img id="theImg" src="'+_urlwebcam+'" />');
+
+//alert (global_isstream);
+} else if (global_isstream == "2") {
+	if (last_global_isstream=="2") {
+
+	} else {
+	last_global_isstream="2";
+	var _urlwebcam = window.currentServerURL.replace('/geolite', ':8291?action=stream');
+	$('#fotowebcam').empty().append('<img id="theImg" src="'+_urlwebcam+'" />');
+	}
+} else {
+last_global_isstream="0";
+$('#fotowebcam').empty()
+}
+
+//$('#fotowebcam').html(_urlwebcam);
+
 //var _urlwebcam = "https://i.stack.imgur.com/n9Xwo.jpg?s=48&g=1";
 //     $('#fotowebcam').load('http://192.168.6.1/geolite/anu.ini');
 //    $('#fotowebcam').load('http://192.168.6.1:8291/?action=snapshot');
 //$('#fotowebcam').html("<img  style='position:absolute' src=window.currentServerURL.replace('/geolite', ':8291?action=snapshot')>");
 //$('#fotowebcam').html(_urlwebcam);
-var _urlwebcam = window.currentServerURL.replace('/geolite', ':8291?action=snapshot');
-$('#fotowebcam').empty().append('<img id="theImg" src='+_urlwebcam+' />')
+
 
   // console.log('checking: '+window.checking);
   if (window.connected && !window.checking) {
@@ -346,6 +369,8 @@ function gagal(a) {
 
 $(document).ready(function(){
 
+	global_isstream = 0;
+	
   $('.version').html(versi);
   $('#buildver').html(build);
 
@@ -818,7 +843,17 @@ $(window).load(function() {
     $('#modal-connectionlost').closeModal();
     changeServer(window.currentServerName);
   });
-
+  
+  $('#btn_streaming').click(function() {
+  global_isstream="1";
+  });
+  $('#btn_streamingvideo').click(function() {
+  global_isstream="2";
+  });    
+  $('#btn_streamingoff').click(function() {
+  global_isstream="0";
+  }); 
+  
   $('#serverurl').focus(function(event) {
     if ($(this).val() == "") {
       $(this).val("http://");
