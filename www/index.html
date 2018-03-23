@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Geopump</title>
+    <title>Geopump Mega Media</title>
     <base target="_self">
     <meta name="description" content="aplikasi remote control untuk mengendalikan saklar/relay yang terhubung pada GPIO di perangkat berbasis OpenWRT">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
@@ -17,7 +17,7 @@
 <body>
     <div class="navbar-fixed">
         <nav class="indigo darken-1">
-            <div class="nav-wrapper"> <a href="#!" class="brand-logo">Geopump</a> <a href="#" id="toggle-menu-kiri" data-activates="menu-kiri" class="button-collapse show-on-large"><i class="fa fa-bars"></i></a>
+            <div class="nav-wrapper"> <a href="#!" class="brand-logo">Geopump Mega Media</a> <a href="#" id="toggle-menu-kiri" data-activates="menu-kiri" class="button-collapse show-on-large"><i class="fa fa-bars"></i></a>
                 <ul class="side-nav" id="menu-kiri">
                     <li class="sidenav-account indigo darken-1"><b>Geopump</b>
                         <br>by @GeotronicGIS
@@ -31,10 +31,11 @@
             <div>
                 <div class="col s12">
                     <ul class="tabs indigo darken-1">
-                        <li class="tab col s3"><a href="#saklar">Alat</a></li>
-                        <li class="tab col s3"><a href="#jadwal">Jadwal</a></li>
-                        <li class="tab col s3"><a href="#setting">Setting</a></li>
-						<li class="tab col s3"><a href="#foto">Foto</a></li>
+						<li class="tab col s3"><a href="#saklar">Alat</a></li>
+						<li class="tab col s3"><a href="#jadwal">Jadwal</a></li>
+
+						<li class="tab col s3"><a href="#foto">Media</a></li>
+						<li class="tab col s3"><a href="#setting">Setting</a></li>
                     </ul>
                 </div>
             </div>
@@ -126,7 +127,20 @@
                         </div>
                     </div>
                 </div>
-            </div>	
+            </div>
+
+			<div id="foto" class="col s12">
+				<button id="btn_streaming" class="indigo darken-1 waves-effect waves-light btn right-align btnsml">Foto</button>
+				<button id="btn_streamingvideo" class="indigo darken-1 waves-effect waves-light btn right-align btnsml">Video</button>
+				<button id="btn_streamingoff" class="indigo darken-1 waves-effect waves-light btn right-align btnsml">Stop</button>
+
+				<div id="fotowebcam"></div>
+				
+
+
+			</div>	
+			
+			
             <div id="setting" class="col s12">
                 <div id="setting-content">
                   <div class="row">
@@ -187,16 +201,7 @@
                 </div>
             </div>
 
-            <div id="foto" class="col s12">
-            <button id="btn_streaming" class="indigo darken-1 waves-effect waves-light btn right-align btnsml">Foto</button>
-            <button id="btn_streamingvideo" class="indigo darken-1 waves-effect waves-light btn right-align btnsml">Video</button>
-            <button id="btn_streamingoff" class="indigo darken-1 waves-effect waves-light btn right-align btnsml">Stop</button>
-
-			<div id="fotowebcam"></div>
-								
-
-
-			</div>			
+		
 			
             <div id="modal-tambah-server" class="modal">
                 <div class="modal-content">              
